@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Countdown to 12 November 2026, 6:30 PM India time.
-  const target = new Date("2026-11-12T18:30:00+05:30").getTime();
+  const target = new Date("2026-12-12T18:30:00+05:30").getTime();
   const fields = {
     days: document.getElementById("days"),
     hours: document.getElementById("hours"),
