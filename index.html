@@ -1,217 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#641e32">
-  <meta name="description" content="Wedding invitation of M S Mohan Kumar and Priyanka">
-  <title>Mohan Kumar & Priyanka | Wedding Invitation</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css">
-  <script src="./script.js" defer></script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#eee8dc">
+<meta name="description" content="Mohan Kumar and Priyanka — A Wedding Story, 11 and 12 November 2026.">
+<title>Mohan Kumar & Priyanka — A Wedding Story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Italiana&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css"><script src="./script.js" defer></script>
 </head>
 <body>
+<div class="grain" aria-hidden="true"></div>
+<section class="opening" id="opening" aria-label="Wedding date reveal">
+  <div class="opening-top"><span>THE WEDDING CELEBRATION</span><span>HYDERABAD · INDIA</span></div>
+  <div class="opening-center">
+    <p class="opening-kicker">A NEW CHAPTER BEGINS</p>
+    <h1 class="opening-names">Mohan Kumar <i>&</i> Priyanka</h1>
+    <button class="reveal-date" id="revealDate" type="button" aria-expanded="false">
+      <span class="reveal-prompt">TAP TO REVEAL OUR WEDDING DATES</span><span class="reveal-line"></span>
+      <span class="revealed-date">11 — 12 November 2026</span><span class="reveal-arrow">↓</span>
+    </button>
+    <p class="opening-tagline">The days we begin forever.</p>
+  </div>
+  <div class="opening-bottom"><span>WITH LOVE, FROM OUR FAMILIES</span><span>SCROLL TO EXPLORE</span></div>
+</section>
 
-  <div class="floating-glow"></div>
+<main id="story" class="story" aria-hidden="true">
+<nav class="site-nav"><a class="nav-brand" href="#top">M <span>&</span> P</a>
+  <div class="nav-links"><a href="#story-intro">OUR STORY</a><a href="#celebrations">CELEBRATIONS</a><a href="#details">THE DETAILS</a></div>
+  <a class="nav-date" href="#celebrations">11—12 NOV ’26</a>
+</nav>
 
-  <!-- Opening envelope -->
-  <section class="intro" id="intro">
-    <div class="intro-decoration">❧</div>
-    <p class="eyebrow">A beautiful beginning</p>
-    <h1 class="intro-title">Together Forever</h1>
-    <p class="intro-subtitle">You are cordially invited to celebrate our wedding</p>
-
-    <div class="envelope-stage">
-      <div class="envelope" id="envelope">
-        <div class="envelope-back"></div>
-
-        <div class="letter">
-          <div class="letter-border">
-            <span class="letter-small">With the blessings of our families</span>
-            <h2>Wedding Invitation</h2>
-            <div class="letter-flower">❀</div>
-            <p class="letter-name">M S Mohan Kumar</p>
-            <span class="letter-and">&</span>
-            <p class="letter-name">Priyanka</p>
-            <p class="letter-date">12 November 2026</p>
-          </div>
-        </div>
-
-        <div class="envelope-front"></div>
-        <div class="envelope-flap"></div>
-
-        <button class="seal" id="openSeal" type="button" aria-label="Open invitation">
-          <span> M </span>
-        </button>
-      </div>
+<section class="story-hero" id="top">
+  <div class="hero-image">
+    <div class="hero-art-ring ring-one"></div><div class="hero-art-ring ring-two"></div>
+    <div class="hero-botanical botanical-left">✳</div><div class="hero-botanical botanical-right">❋</div>
+    <div class="hero-copy"><p class="section-kicker">A WEDDING STORY</p>
+      <h2>Two hearts.<br><em>One beautiful</em><br>beginning.</h2>
+      <div class="hero-rule"><span>✳</span></div>
+      <p class="hero-couple">M S Mohan Kumar <span>&</span> Priyanka</p>
+      <p class="hero-date">11 & 12 NOVEMBER 2026 · HYDERABAD</p>
     </div>
+    <span class="image-caption">A CELEBRATION OF LOVE & TOGETHERNESS</span>
+  </div>
+  <a class="scroll-cue" href="#story-intro"><span>SCROLL TO DISCOVER</span><i>↓</i></a>
+</section>
 
-    <p class="tap-hint" id="tapHint">Tap the golden seal to open your invitation</p>
-    <button class="text-button" id="skipIntro" type="button">Open invitation</button>
-  </section>
+<section class="intro-section content-section" id="story-intro">
+  <div class="section-number">01 / THE BEGINNING</div>
+  <div class="intro-text"><p class="section-kicker">WITH THE BLESSINGS OF OUR FAMILIES</p>
+    <h2>Some moments become<br><em>memories for a lifetime.</em></h2>
+    <p>With hearts full of happiness, we invite you to be part of our wedding celebrations. Join our families as we gather for two days of colour, tradition, laughter and love.</p>
+    <p class="signature">Mohan Kumar & Priyanka</p>
+  </div>
+  <div class="intro-stamp"><span>THE<br>BEGINNING</span><b>✳</b></div>
+</section>
 
-  <!-- Main invitation -->
-  <main id="invitation" class="invitation" aria-hidden="true">
+<section class="date-section">
+  <div class="date-section-inner"><p class="section-kicker">SAVE THESE DAYS</p>
+    <h2>Two days. <em>Countless memories.</em></h2>
+    <div class="date-pair">
+      <div><span class="date-label">DAY ONE</span><strong>11</strong><span>NOVEMBER 2026</span><small>HALDI & MEHNDI</small></div>
+      <div class="date-divider">✳</div>
+      <div><span class="date-label">DAY TWO</span><strong>12</strong><span>NOVEMBER 2026</span><small>THE WEDDING</small></div>
+    </div>
+    <div class="countdown-wrap"><p>COUNTING DOWN TO THE WEDDING</p>
+      <div class="countdown"><div><strong id="days">--</strong><span>DAYS</span></div><div><strong id="hours">--</strong><span>HOURS</span></div><div><strong id="minutes">--</strong><span>MINUTES</span></div><div><strong id="seconds">--</strong><span>SECONDS</span></div></div>
+    </div>
+  </div>
+</section>
 
-    <header class="hero">
-      <div class="corner corner-tl">❧</div>
-      <div class="corner corner-tr">❧</div>
-      <div class="corner corner-bl">❧</div>
-      <div class="corner corner-br">❧</div>
-
-      <p class="eyebrow">Together with our families</p>
-      <div class="hero-symbol">❦</div>
-      <p class="hero-pretitle">Request the pleasure of your company</p>
-
-      <h1 class="hero-heading">Wedding Invitation</h1>
-
-      <div class="names">
-        <span>M S Mohan Kumar</span>
-        <i>&</i>
-        <span>Priyanka</span>
+<section class="celebrations content-section" id="celebrations">
+  <div class="section-number">02 / THE CELEBRATIONS</div>
+  <div class="section-heading"><p class="section-kicker">COME CELEBRATE WITH US</p>
+    <h2>Every celebration<br><em>has its own magic.</em></h2><p>We would love to have you by our side for these special moments.</p>
+  </div>
+  <article class="event event-haldi">
+    <div class="event-art art-haldi"><span class="art-small">DAY ONE · 11.11.2026</span><span class="art-big">A little<br><em>colour,</em><br>a lot of joy.</span><span class="art-flower">✳</span><span class="art-bottom">HALDI & MEHNDI</span></div>
+    <div class="event-info"><p class="event-index">THE FIRST GATHERING</p><h3>Haldi <em>& Mehndi</em></h3>
+      <p class="event-description">A day of vibrant colours, beautiful traditions, music and laughter. Let’s begin the celebrations together.</p>
+      <div class="event-meta">
+        <div><span>DATE</span><strong>Wednesday, 11 November 2026</strong></div>
+        <div><span>TIME</span><strong>To be announced</strong></div>
+        <div><span>VENUE</span><strong>Santorini</strong><small>Gandi Maisamma, Hyderabad</small></div>
       </div>
-
-      <div class="gold-divider"><span>✦</span></div>
-
-      <p class="hero-message">
-        Two hearts, two families, one beautiful journey.
-        Join us as we celebrate love, laughter and a lifetime of togetherness.
-      </p>
-
-      <div class="main-date">
-        <span class="date-day">12</span>
-        <div>
-          <span class="date-month">NOVEMBER</span>
-          <span class="date-year">2026</span>
-        </div>
+      <a class="map-link" href="https://maps.app.goo.gl/BgJ5kkY6JZ86VHhn7" target="_blank" rel="noopener noreferrer">VIEW LOCATION <span>↗</span></a>
+    </div>
+  </article>
+  <article class="event event-wedding">
+    <div class="event-info"><p class="event-index">THE DAY WE SAY “I DO”</p><h3>The <em>Wedding</em></h3>
+      <p class="event-description">The moment our families come together to celebrate a new beginning. Your presence and blessings will make it unforgettable.</p>
+      <div class="event-meta">
+        <div><span>DATE</span><strong>Thursday, 12 November 2026</strong></div>
+        <div><span>TIME</span><strong>6:30 PM</strong></div>
+        <div><span>VENUE</span><strong>Sri Maharaja Gardens</strong><small>Jeedimetla, Hyderabad</small></div>
       </div>
+      <a class="map-link" href="https://maps.app.goo.gl/848sLgokLMzXbGX69?g_st=iw" target="_blank" rel="noopener noreferrer">VIEW LOCATION <span>↗</span></a>
+    </div>
+    <div class="event-art art-wedding"><span class="art-small">DAY TWO · 12.11.2026</span><span class="art-big">And so,<br><em>forever</em><br>begins.</span><span class="art-flower">❋</span><span class="art-bottom">THE WEDDING</span></div>
+  </article>
+</section>
 
-      <p class="hero-time">THURSDAY · 6:30 PM</p>
-      <div class="hero-bottom-flower">❀</div>
-    </header>
-
-    <!-- Countdown -->
-    <section class="countdown-section">
-      <p class="eyebrow">The big day is approaching</p>
-      <h2>Counting Down to Forever</h2>
-      <div class="countdown" id="countdown">
-        <div class="count-box"><strong id="days">00</strong><span>Days</span></div>
-        <div class="count-box"><strong id="hours">00</strong><span>Hours</span></div>
-        <div class="count-box"><strong id="minutes">00</strong><span>Minutes</span></div>
-        <div class="count-box"><strong id="seconds">00</strong><span>Seconds</span></div>
-      </div>
-    </section>
-
-    <!-- Scratch card -->
-    <section class="scratch-section section">
-      <p class="eyebrow">A little surprise</p>
-      <h2>Scratch to Reveal</h2>
-      <p class="section-copy">Reveal the date of our special celebration.</p>
-
-      <div class="scratch-card">
-        <div class="scratch-reveal">
-          <span class="scratch-flower">✿</span>
-          <p>Save the Date</p>
-          <h3>12 November 2026</h3>
-          <span class="scratch-flower">✿</span>
-        </div>
-        <canvas id="scratchCanvas" aria-label="Scratch to reveal the wedding date"></canvas>
-      </div>
-      <button class="outline-button" id="revealButton" type="button">Reveal the date</button>
-    </section>
-
-    <!-- Events -->
-    <section class="events-section section">
-      <p class="eyebrow">The celebrations</p>
-      <h2>Join Us for the Festivities</h2>
-      <p class="section-copy">Your presence will make these moments unforgettable.</p>
-
-      <div class="event-list">
-
-        <article class="event-card">
-          <div class="event-top">
-            <span class="event-number">01</span>
-            <span class="event-flower">✿</span>
-          </div>
-          <p class="event-label">THE PRE-WEDDING CELEBRATION</p>
-          <h3>Haldi & Mehndi</h3>
-          <p class="event-description">
-            A joyful celebration filled with colours, music, laughter and blessings.
-          </p>
-          <div class="event-rule"></div>
-          <p class="event-date">11 November 2026</p>
-          <p class="event-time">Time to be announced</p>
-          <div class="venue">
-            <span class="venue-icon">⌖</span>
-            <strong>Santorini</strong>
-            <span>Gandi Maisamma, Hyderabad</span>
-          </div>
-          <a class="map-button" href="https://maps.app.goo.gl/BgJ5kkY6JZ86VHhn7"
-             target="_blank" rel="noopener noreferrer">
-            <span>Get Directions</span> <span>↗</span>
-          </a>
-        </article>
-
-        <article class="event-card wedding-card">
-          <div class="event-top">
-            <span class="event-number">02</span>
-            <span class="event-flower">❀</span>
-          </div>
-          <p class="event-label">THE WEDDING CEREMONY</p>
-          <h3>The Wedding</h3>
-          <p class="event-description">
-            Join us as we exchange vows and begin our beautiful journey together.
-          </p>
-          <div class="event-rule"></div>
-          <p class="event-date">12 November 2026</p>
-          <p class="event-time">Thursday · 6:30 PM</p>
-          <div class="venue">
-            <span class="venue-icon">⌖</span>
-            <strong>Sri Maharaja Gardens</strong>
-            <span>Jeedimetla, Hyderabad</span>
-          </div>
-          <a class="map-button" href="https://maps.app.goo.gl/848sLgokLMzXbGX69?g_st=iw"
-             target="_blank" rel="noopener noreferrer">
-            <span>Get Directions</span> <span>↗</span>
-          </a>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- Closing -->
-    <section class="closing-section section">
-      <div class="closing-flower">❦</div>
-      <p class="eyebrow">With love and gratitude</p>
-      <h2>Your Presence Is Our Greatest Gift</h2>
-      <p class="closing-copy">
-        We would be delighted to have you with us on our special day.
-        Please join us with your blessings and good wishes.
-      </p>
-      <div class="closing-divider">✦</div>
-      <p class="closing-script">With love,</p>
-      <p class="closing-names">Mohan Kumar & Priyanka</p>
-      <p class="closing-date">11 & 12 NOVEMBER 2026</p>
-    </section>
-
-    <footer class="footer">
-      <span>MADE WITH LOVE</span>
-      <span>✦</span>
-      <span>11 · 12 NOVEMBER 2026</span>
-    </footer>
-  </main>
-
-  <!-- Optional music -->
-  <audio id="weddingMusic" loop preload="none">
-    <source src="./assets/wedding-music.mp3" type="audio/mpeg">
-  </audio>
-
-  <button class="music-button" id="musicButton" type="button" aria-label="Play music">
-    <span id="musicIcon">♫</span>
-    <span id="musicText">Play music</span>
-  </button>
-
-</body>
-</html>
+<section class="details-section content-section" id="details">
+  <div class="section-number">03 / THE DETAILS</div><p class="section-kicker">ALL THAT MATTERS IS YOU BEING THERE</p>
+  <h2>Come as you are.<br><em>Celebrate with us.</em></h2>
+  <p class="details-copy">Your presence is the most meaningful gift. We look forward to sharing these moments, making memories and beginning this new chapter with the people we love.</p>
+  <div class="details-dates"><span>11 NOVEMBER</span><b>✳</b><span>12 NOVEMBER 2026</span></div>
+</section>
+<footer class="footer"><div class="footer-mark">M <i>&</i> P</div><p>THE DAY WE BEGIN FOREVER.</p><p class="footer-names">M S Mohan Kumar & Priyanka</p><span>WITH LOVE · HYDERABAD · 2026</span></footer>
+</main>
+<button class="back-top" id="backTop" type="button" aria-label="Back to top">↑</button>
+</body></html>
