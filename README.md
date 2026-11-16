@@ -1,4 +1,5 @@
 # M S Mohan Kumar & Priyanka — Wedding Invitation
+https://msmohankumar.github.io/MS-wedding/
 
 An original, responsive, browser-only wedding invitation built with HTML, CSS and JavaScript. No npm, Node.js, or local software is required.
 
