@@ -1,172 +1,184 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#f6eee2">
-  <meta name="description" content="M S Mohan Kumar and Priyanka invite you to celebrate their wedding on 18 DESEMBER 2026.">
-  <title>Mohan Kumar & Priyanka — A Wedding Celebration</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f1e7">
+  <meta name="description" content="A wedding invitation celebrating the marriage of M S Mohan Kumar and Priyanka.">
+  <title>Wedding Invitation | Mohan Kumar & Priyanka</title>
   <link rel="stylesheet" href="./styles.css">
+  <script src="./script.js" defer></script>
 </head>
+
 <body>
-  <div class="petal-layer" aria-hidden="true"></div>
-
-  <header class="hero" id="home">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="#home">M <span>&</span> P</a>
-      <div class="nav-links">
-        <a href="#countdown">Countdown</a>
-        <a href="#celebrations">Celebrations</a>
-        <a href="#blessings">Blessings</a>
+  <main>
+    <!-- ENVELOPE INTRO -->
+    <section class="intro-screen" id="introScreen">
+      <div class="intro-heading">
+        <p class="eyebrow">A celebration of love</p>
+        <h1>You're Invited</h1>
+        <p class="intro-subtitle">A special invitation awaits you</p>
       </div>
-      <button id="musicButton" class="music-button" type="button" aria-label="Play or pause wedding music">
-        <span aria-hidden="true">♫</span> <span id="musicLabel">Music off</span>
-      </button>
-    </nav>
 
-    <div class="hero-content">
-      <p class="sanskrit">॥ शुभ विवाह ॥</p>
-      <p class="eyebrow">A LITTLE NOTE SEALED WITH LOVE</p>
-
-      <div class="envelope-scene" id="envelopeScene">
+      <div class="envelope-wrap">
         <div class="envelope" id="envelope">
           <div class="envelope-back"></div>
-
-          <article class="letter" id="invitationLetter" aria-label="Wedding invitation letter">
-            <div class="letter-inner">
-              <span class="letter-flower" aria-hidden="true">❀</span>
-              <p class="letter-small">TOGETHER WITH OUR FAMILIES</p>
-              <h1>M S Mohan Kumar <em>&</em> Priyanka</h1>
-              <p class="letter-copy">invite you to join us as we begin<br>our beautiful journey together</p>
-              <p class="letter-date">12 · 12 · 2026</p>
-              <span class="letter-bottom-flower" aria-hidden="true">✦</span>
+          <div class="letter">
+            <div class="letter-content">
+              <p class="eyebrow">Together with our families</p>
+              <h2>Wedding Invitation</h2>
+              <div class="ornament">❧</div>
+              <p class="letter-names">M S Mohan Kumar</p>
+              <p class="letter-ampersand">&</p>
+              <p class="letter-names">Priyanka</p>
+              <p class="letter-date">18 November 2026</p>
+              <p class="letter-message">Request the pleasure of your company</p>
             </div>
-          </article>
-
-          <div class="envelope-pocket" aria-hidden="true">
-            <div class="pocket-left"></div>
-            <div class="pocket-right"></div>
-            <div class="pocket-front"></div>
           </div>
-          <div class="envelope-flap" aria-hidden="true"></div>
-
-          <button class="wax-seal" id="openInvitation" type="button" aria-label="Open the wedding invitation">
-            <span class="seal-monogram">M <small>&</small> P</span>
-            <span class="seal-shine" aria-hidden="true"></span>
+          <div class="envelope-front"></div>
+          <div class="envelope-flap"></div>
+          <button class="wax-seal" id="openInvitation" type="button"
+                  aria-label="Open wedding invitation">
+            <span> M </span>
           </button>
         </div>
       </div>
 
       <p class="tap-hint" id="tapHint">Tap the wax seal to open your invitation</p>
-      <p class="hero-date">FRIDAY · 11 DECEMBER 2026</p>
-      <a class="scroll-cue" href="#scratch">DISCOVER OUR DAY <span>↓</span></a>
-      <p class="music-note" id="musicNote" aria-live="polite">Music will begin when you open the invitation.</p>
+      <button class="skip-button" id="skipIntro" type="button">View invitation</button>
+    </section>
+
+    <!-- MAIN INVITATION -->
+    <div class="invitation-content" id="invitationContent" aria-hidden="true">
+      <header class="hero section">
+        <p class="eyebrow">With the blessings of our families</p>
+        <div class="hero-flourish">❦</div>
+        <h1 class="hero-title">Wedding Invitation</h1>
+        <p class="hero-intro">Two hearts, one beautiful journey</p>
+
+        <div class="couple-names">
+          <span>M S Mohan Kumar</span>
+          <span class="ampersand">&</span>
+          <span>Priyanka</span>
+        </div>
+
+        <div class="hero-divider"><span>✦</span></div>
+        <p class="invite-line">
+          With great joy, we invite you to join us as we celebrate
+          our wedding and begin a new chapter together.
+        </p>
+
+        <div class="wedding-date">
+          <span class="date-day">18</span>
+          <span class="date-month">NOVEMBER</span>
+          <span class="date-year">2026</span>
+        </div>
+      </header>
+
+      <!-- COUNTDOWN -->
+      <section class="countdown-section section">
+        <p class="eyebrow">The celebration begins in</p>
+        <h2>Counting Down to Our Big Day</h2>
+        <div class="countdown" id="countdown">
+          <div class="countdown-item">
+            <span id="days">--</span>
+            <small>Days</small>
+          </div>
+          <div class="countdown-item">
+            <span id="hours">--</span>
+            <small>Hours</small>
+          </div>
+          <div class="countdown-item">
+            <span id="minutes">--</span>
+            <small>Minutes</small>
+          </div>
+          <div class="countdown-item">
+            <span id="seconds">--</span>
+            <small>Seconds</small>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCRATCH CARD -->
+      <section class="scratch-section section">
+        <p class="eyebrow">A little surprise for you</p>
+        <h2>Scratch to Reveal</h2>
+        <p class="section-description">
+          Scratch the card below to reveal our special day.
+        </p>
+
+        <div class="scratch-card">
+          <div class="scratch-message">
+            <span class="scratch-flower">✿</span>
+            <p>Save the Date</p>
+            <h3>18 November 2026</h3>
+            <span class="scratch-flower">✿</span>
+          </div>
+          <canvas id="scratchCanvas" aria-label="Scratch this card to reveal the wedding date"></canvas>
+        </div>
+
+        <button class="secondary-button" id="revealScratch" type="button">
+          Reveal the date
+        </button>
+      </section>
+
+      <!-- EVENTS -->
+      <section class="events-section section">
+        <p class="eyebrow">Join us for the celebrations</p>
+        <h2>Wedding Events</h2>
+        <p class="section-description">
+          Your presence will make our celebration even more special.
+        </p>
+
+        <div class="event-grid">
+          <article class="event-card">
+            <div class="event-icon">✧</div>
+            <p class="event-number">EVENT 01</p>
+            <h3>Wedding Celebration</h3>
+            <div class="event-divider"></div>
+            <p class="event-date">17 November 2026</p>
+            <p class="event-time">Time to be announced</p>
+            <p class="event-venue">Venue details to be announced</p>
+          </article>
+
+          <article class="event-card featured-event">
+            <div class="event-icon">❦</div>
+            <p class="event-number">EVENT 02</p>
+            <h3>Wedding Ceremony</h3>
+            <div class="event-divider"></div>
+            <p class="event-date">18 November 2026</p>
+            <p class="event-time">Time to be announced</p>
+            <p class="event-venue">Venue details to be announced</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- BLESSING -->
+      <section class="blessing-section section">
+        <div class="blessing-ornament">❧</div>
+        <h2>Your Presence Is Our Blessing</h2>
+        <p>
+          We look forward to celebrating this special occasion with you.
+          Your love, blessings and good wishes mean the world to us.
+        </p>
+        <div class="blessing-ornament">❧</div>
+        <p class="signature">With love,<br><strong>Mohan Kumar & Priyanka</strong></p>
+      </section>
+
+      <footer class="footer">
+        <p>Made with love for our special day</p>
+        <p class="footer-date">18 · 11 · 2026</p>
+      </footer>
     </div>
-
-    <div class="hero-ornament ornament-a" aria-hidden="true">❧</div>
-    <div class="hero-ornament ornament-b" aria-hidden="true">❧</div>
-  </header>
-
-  <main>
-    <section class="scratch-section section" id="scratch">
-      <p class="eyebrow">A LITTLE SECRET FOR YOU</p>
-      <h2>Scratch to reveal our date</h2>
-      <p class="section-intro">A special day, hidden beneath a little golden shimmer.</p>
-
-      <div class="scratch-card" id="scratchCard">
-        <div class="scratch-under">
-          <span class="scratch-flower" aria-hidden="true">❀</span>
-          <p>THE DAY WE BEGIN FOREVER</p>
-          <strong>18 DESEMBER 2026</strong>
-          <span>WEDNESDAY · INDIA</span>
-        </div>
-        <canvas id="scratchCanvas" aria-label="Scratch the gold surface to reveal the wedding date"></canvas>
-      </div>
-      <button class="text-button" id="revealDate" type="button">Tap here to reveal instead</button>
-      <p class="scratch-hint">Use your finger on a phone or your mouse on a computer.</p>
-      <div class="divider" aria-hidden="true">✦　❀　✦</div>
-    </section>
-
-    <section class="countdown-section section" id="countdown">
-      <p class="eyebrow">THE MOMENT IS GETTING CLOSER</p>
-      <h2>Counting down to forever</h2>
-      <div class="countdown" aria-label="Countdown to the wedding">
-        <div><strong id="days">--</strong><span>Days</span></div><i aria-hidden="true">:</i>
-        <div><strong id="hours">--</strong><span>Hours</span></div><i aria-hidden="true">:</i>
-        <div><strong id="minutes">--</strong><span>Minutes</span></div><i aria-hidden="true">:</i>
-        <div><strong id="seconds">--</strong><span>Seconds</span></div>
-      </div>
-      <p class="quote">“Two hearts, one promise, a lifetime of memories.”</p>
-      <div class="divider" aria-hidden="true">✦　❀　✦</div>
-    </section>
-
-    <section class="celebrations section" id="celebrations">
-      <div class="section-heading">
-        <p class="eyebrow">THE WEDDING STORY</p>
-        <h2>Our celebrations</h2>
-        <p class="section-intro">Two beautiful occasions. One celebration of togetherness.</p>
-      </div>
-      <div class="gold-thread" aria-hidden="true"></div>
-
-      <article class="chapter">
-        <div class="chapter-art">
-          <span aria-hidden="true">❀</span>
-          <small>CHAPTER ONE</small>
-        </div>
-        <div class="chapter-copy">
-          <p class="eyebrow">17 DESEMBER 2026 · TUESDAY</p>
-          <h3>Pre-Wedding Celebration</h3>
-          <p>A joyful gathering of family and friends, filled with traditions, laughter and blessings as the festivities begin.</p>
-          <dl>
-            <div><dt>TIME</dt><dd>To be announced</dd></div>
-            <div><dt>VENUE</dt><dd>Venue details to be announced</dd></div>
-          </dl>
-        </div>
-      </article>
-
-      <article class="chapter chapter-reverse">
-        <div class="chapter-art art-two">
-          <span aria-hidden="true">ॐ</span>
-          <small>CHAPTER TWO</small>
-        </div>
-        <div class="chapter-copy">
-          <p class="eyebrow">18 DESEMBER 2026 · WEDNESDAY</p>
-          <h3>The Wedding Ceremony</h3>
-          <p>With the blessings of our families and the love of our dear ones, we invite you to witness the beginning of our forever.</p>
-          <dl>
-            <div><dt>TIME</dt><dd>To be announced</dd></div>
-            <div><dt>VENUE</dt><dd>Venue details to be announced</dd></div>
-          </dl>
-        </div>
-      </article>
-      <p class="update-note">Timings and venue information will be added soon.</p>
-    </section>
-
-    <section class="blessings section" id="blessings">
-      <div class="blessing-frame">
-        <p class="eyebrow">WITH LOVE & BLESSINGS</p>
-        <h2>Your presence is our present</h2>
-        <p>We would be honoured to have you with us on our special day. Your blessings and good wishes will make our celebration complete.</p>
-        <div class="divider" aria-hidden="true">❀</div>
-        <p class="signature">Mohan Kumar <em>&</em> Priyanka</p>
-        <p class="closing-date">12 · 12 · 2026</p>
-      </div>
-    </section>
   </main>
 
-  <footer>
-    <span aria-hidden="true">❀</span>
-    <p>MADE WITH LOVE</p>
-    <strong>M <em>&</em> P</strong>
-    <small>18 DESEMBER 2026</small>
-  </footer>
+  <!-- Optional music: add your own licensed file at assets/wedding-music.mp3 -->
+  <audio id="weddingMusic" loop preload="none">
+    <source src="./assets/wedding-music.mp3" type="audio/mpeg">
+  </audio>
 
-  <!-- Add an audio file you own or are licensed to use at assets/wedding-music.mp3.
-       Browsers only allow sound after a guest interaction. -->
-  <audio id="weddingMusic" src="./assets/wedding-music.mp3" loop preload="none"></audio>
-  <script src="./script.js"></script>
+  <button class="music-button" id="musicButton" type="button" aria-label="Play background music">
+    ♫ <span id="musicLabel">Play music</span>
+  </button>
 </body>
 </html>
