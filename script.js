@@ -1,183 +1,298 @@
-// ============================================================
-// WEDDING SETTINGS
-// ============================================================
-const weddingInstant = new Date("2026-11-18T00:00:00+05:30").getTime();
+document.addEventListener("DOMContentLoaded", function () {
+  const introScreen = document.getElementById("introScreen");
+  const invitationContent = document.getElementById("invitationContent");
+  const envelope = document.getElementById("envelope");
+  const openInvitation = document.getElementById("openInvitation");
+  const skipIntro = document.getElementById("skipIntro");
+  const tapHint = document.getElementById("tapHint");
 
-// ============================================================
-// LIVE COUNTDOWN
-// ============================================================
-function updateCountdown() {
-  const remaining = Math.max(0, weddingInstant - Date.now());
-  const values = {
-    days: Math.floor(remaining / 86400000),
-    hours: Math.floor((remaining % 86400000) / 3600000),
-    minutes: Math.floor((remaining % 3600000) / 60000),
-    seconds: Math.floor((remaining % 60000) / 1000)
-  };
-  Object.entries(values).forEach(([id, value]) => {
-    const element = document.getElementById(id);
-    if (element) element.textContent = String(value).padStart(2, "0");
-  });
-}
-updateCountdown();
-setInterval(updateCountdown, 1000);
+  const music = document.getElementById("weddingMusic");
+  const musicButton = document.getElementById("musicButton");
+  const musicLabel = document.getElementById("musicLabel");
 
-// ============================================================
-// CLASSIC ENVELOPE OPENING + OPTIONAL BACKGROUND MUSIC
-// ============================================================
-const envelope = document.getElementById("envelope");
-const openInvitationButton = document.getElementById("openInvitation");
-const tapHint = document.getElementById("tapHint");
-const music = document.getElementById("weddingMusic");
-const musicButton = document.getElementById("musicButton");
-const musicLabel = document.getElementById("musicLabel");
-const musicNote = document.getElementById("musicNote");
+  let invitationOpened = false;
+  let musicPlaying = false;
 
-let invitationOpened = false;
+  // --------------------------------------------------
+  // OPEN THE ENVELOPE
+  // --------------------------------------------------
 
-async function playWeddingMusic() {
-  if (!music || !music.getAttribute("src")) return;
-  try {
-    await music.play();
-    musicLabel.textContent = "Music on";
-    musicNote.textContent = "A little music for your celebration.";
-  } catch (error) {
-    musicLabel.textContent = "Tap ♫ to play";
-    musicNote.textContent = "Your browser blocked autoplay. Use the Music button to start.";
-  }
-}
+  function createPetals() {
+    const symbols = ["✿", "❀", "❁", "✾"];
 
-openInvitationButton?.addEventListener("click", async () => {
-  if (invitationOpened) return;
-  invitationOpened = true;
-  envelope?.classList.add("open");
-  openInvitationButton.setAttribute("aria-label", "Invitation opened");
-  openInvitationButton.disabled = true;
-  tapHint.textContent = "With love, we invite you to celebrate with us.";
-  sprinklePetals();
-  await playWeddingMusic();
-});
+    for (let i = 0; i < 24; i++) {
+      const petal = document.createElement("span");
+      petal.className = "petal";
+      petal.textContent = symbols[Math.floor(Math.random() * symbols.length)];
 
-musicButton?.addEventListener("click", async () => {
-  if (!music) return;
-  if (music.paused) {
-    await playWeddingMusic();
-  } else {
-    music.pause();
-    musicLabel.textContent = "Music off";
-    musicNote.textContent = "Music paused.";
-  }
-});
+      petal.style.left = Math.random() * 100 + "vw";
+      petal.style.fontSize = (12 + Math.random() * 15) + "px";
+      petal.style.animationDuration = (4 + Math.random() * 5) + "s";
+      petal.style.setProperty("--drift", (Math.random() * 180 - 90) + "px");
 
-// ============================================================
-// SCRATCH CARD: WORKS WITH MOUSE, TOUCH AND PEN
-// ============================================================
-const canvas = document.getElementById("scratchCanvas");
-const card = document.getElementById("scratchCard");
-const context = canvas?.getContext("2d", { willReadFrequently: true });
-let isScratching = false;
-let dateRevealed = false;
+      document.body.appendChild(petal);
 
-function paintScratchFoil() {
-  if (!canvas || !context || dateRevealed || !card) return;
-  const rect = card.getBoundingClientRect();
-  const ratio = Math.min(window.devicePixelRatio || 1, 2);
-  canvas.width = Math.round(rect.width * ratio);
-  canvas.height = Math.round(rect.height * ratio);
-  context.setTransform(ratio, 0, 0, ratio, 0, 0);
-
-  const gold = context.createLinearGradient(0, 0, rect.width, rect.height);
-  gold.addColorStop(0, "#9f783d");
-  gold.addColorStop(.25, "#e8ce8c");
-  gold.addColorStop(.5, "#c29a55");
-  gold.addColorStop(.75, "#f0dba5");
-  gold.addColorStop(1, "#a77f43");
-  context.fillStyle = gold;
-  context.fillRect(0, 0, rect.width, rect.height);
-
-  context.fillStyle = "rgba(255,250,235,.2)";
-  for (let y = 8; y < rect.height; y += 13) {
-    for (let x = (y % 2) * 7; x < rect.width; x += 14) {
-      context.beginPath();
-      context.arc(x, y, .7, 0, Math.PI * 2);
-      context.fill();
+      setTimeout(function () {
+        petal.remove();
+      }, 10000);
     }
   }
 
-  context.fillStyle = "#fff3d2";
-  context.textAlign = "center";
-  context.font = "11px Georgia";
-  context.fillText("A DATE TO REMEMBER", rect.width / 2, rect.height / 2 - 5);
-  context.font = "25px Georgia";
-  context.fillText("✧  SCRATCH HERE  ✧", rect.width / 2, rect.height / 2 + 30);
-}
+  function showInvitation() {
+    if (invitationOpened) return;
 
-function scratchAt(event) {
-  if (!isScratching || dateRevealed || !context || !canvas) return;
-  const bounds = canvas.getBoundingClientRect();
-  const x = event.clientX - bounds.left;
-  const y = event.clientY - bounds.top;
-  context.globalCompositeOperation = "destination-out";
-  context.beginPath();
-  context.arc(x, y, 23, 0, Math.PI * 2);
-  context.fill();
-  context.globalCompositeOperation = "source-over";
-  checkScratchProgress();
-}
+    invitationOpened = true;
 
-function checkScratchProgress() {
-  if (!context || !canvas || dateRevealed) return;
-  const pixels = context.getImageData(0, 0, canvas.width, canvas.height).data;
-  let transparentSamples = 0;
-  let samples = 0;
-  for (let i = 3; i < pixels.length; i += 128) {
-    samples++;
-    if (pixels[i] === 0) transparentSamples++;
+    envelope.classList.add("open");
+    tapHint.textContent = "Opening your invitation...";
+
+    createPetals();
+
+    setTimeout(function () {
+      introScreen.classList.add("dismissed");
+      invitationContent.classList.add("visible");
+      invitationContent.setAttribute("aria-hidden", "false");
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+      startCountdown();
+      initialiseScratchCard();
+    }, 1600);
   }
-  if (samples && transparentSamples / samples > .48) revealScratchCard();
-}
 
-function revealScratchCard() {
-  if (dateRevealed) return;
-  dateRevealed = true;
-  if (context && canvas) context.clearRect(0, 0, canvas.width, canvas.height);
-  canvas?.classList.add("scratched");
-  sprinklePetals();
-}
+  openInvitation.addEventListener("click", showInvitation);
+  skipIntro.addEventListener("click", showInvitation);
 
-canvas?.addEventListener("pointerdown", event => {
-  if (dateRevealed) return;
-  isScratching = true;
-  canvas.setPointerCapture?.(event.pointerId);
-  scratchAt(event);
-});
-canvas?.addEventListener("pointermove", scratchAt);
-["pointerup", "pointercancel", "lostpointercapture"].forEach(type => {
-  canvas?.addEventListener(type, () => { isScratching = false; });
-});
-document.getElementById("revealDate")?.addEventListener("click", revealScratchCard);
-window.addEventListener("resize", () => {
-  if (!dateRevealed) paintScratchFoil();
-});
-paintScratchFoil();
+  // --------------------------------------------------
+  // COUNTDOWN
+  // Wedding date: 18 November 2026
+  // India time: UTC +05:30
+  // --------------------------------------------------
 
-// ============================================================
-// DECORATIVE PETALS
-// ============================================================
-function sprinklePetals() {
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const layer = document.querySelector(".petal-layer");
-  if (!layer) return;
+  function startCountdown() {
+    const weddingDate = new Date("2026-11-18T00:00:00+05:30").getTime();
 
-  for (let i = 0; i < 12; i++) {
-    const petal = document.createElement("span");
-    petal.className = "petal";
-    petal.textContent = Math.random() > .5 ? "✿" : "❀";
-    petal.style.left = `${Math.random() * 100}%`;
-    petal.style.setProperty("--drift", `${Math.random() * 160 - 80}px`);
-    petal.style.animationDuration = `${4 + Math.random() * 4}s`;
-    petal.style.fontSize = `${12 + Math.random() * 12}px`;
-    layer.appendChild(petal);
-    window.setTimeout(() => petal.remove(), 8500);
+    const daysElement = document.getElementById("days");
+    const hoursElement = document.getElementById("hours");
+    const minutesElement = document.getElementById("minutes");
+    const secondsElement = document.getElementById("seconds");
+
+    function updateCountdown() {
+      const now = Date.now();
+      const distance = weddingDate - now;
+
+      if (distance <= 0) {
+        daysElement.textContent = "00";
+        hoursElement.textContent = "00";
+        minutesElement.textContent = "00";
+        secondsElement.textContent = "00";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+
+      daysElement.textContent = String(days).padStart(2, "0");
+      hoursElement.textContent = String(hours).padStart(2, "0");
+      minutesElement.textContent = String(minutes).padStart(2, "0");
+      secondsElement.textContent = String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+
+    if (window.countdownInterval) {
+      clearInterval(window.countdownInterval);
+    }
+
+    window.countdownInterval = setInterval(updateCountdown, 1000);
   }
-}
+
+  // --------------------------------------------------
+  // SCRATCH CARD
+  // --------------------------------------------------
+
+  function initialiseScratchCard() {
+    const canvas = document.getElementById("scratchCanvas");
+    const revealButton = document.getElementById("revealScratch");
+
+    if (!canvas || canvas.dataset.initialised === "true") return;
+
+    canvas.dataset.initialised = "true";
+
+    const ctx = canvas.getContext("2d", {
+      willReadFrequently: true
+    });
+
+    if (!ctx) {
+      revealButton.addEventListener("click", revealCard);
+      return;
+    }
+
+    let isScratching = false;
+    let lastPoint = null;
+    let revealed = false;
+
+    function setupCanvas() {
+      const rect = canvas.getBoundingClientRect();
+      const ratio = Math.max(1, window.devicePixelRatio || 1);
+
+      canvas.width = Math.round(rect.width * ratio);
+      canvas.height = Math.round(rect.height * ratio);
+
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+      const gradient = ctx.createLinearGradient(0, 0, rect.width, rect.height);
+      gradient.addColorStop(0, "#d8c09a");
+      gradient.addColorStop(0.5, "#b9915e");
+      gradient.addColorStop(1, "#e3d0ad");
+
+      ctx.globalCompositeOperation = "source-over";
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, rect.width, rect.height);
+
+      ctx.fillStyle = "rgba(255,255,255,0.20)";
+      ctx.font = "12px Montserrat, sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText("SCRATCH HERE", rect.width / 2, rect.height / 2 - 5);
+
+      ctx.font = "25px Georgia, serif";
+      ctx.fillText("✧", rect.width / 2, rect.height / 2 + 35);
+
+      ctx.globalCompositeOperation = "destination-out";
+    }
+
+    function getPoint(event) {
+      const rect = canvas.getBoundingClientRect();
+
+      return {
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top
+      };
+    }
+
+    function scratchTo(point) {
+      if (!lastPoint) {
+        lastPoint = point;
+        return;
+      }
+
+      ctx.beginPath();
+      ctx.lineWidth = 34;
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      ctx.moveTo(lastPoint.x, lastPoint.y);
+      ctx.lineTo(point.x, point.y);
+      ctx.stroke();
+
+      lastPoint = point;
+      checkScratchProgress();
+    }
+
+    function checkScratchProgress() {
+      const rect = canvas.getBoundingClientRect();
+
+      if (!rect.width || !rect.height) return;
+
+      const imageData = ctx.getImageData(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
+
+      let transparentPixels = 0;
+      const totalPixels = imageData.data.length / 4;
+
+      // Check every fourth pixel to reduce processing time.
+      for (let i = 3; i < imageData.data.length; i += 16) {
+        if (imageData.data[i] < 50) {
+          transparentPixels++;
+        }
+      }
+
+      const sampledPixels = Math.ceil(totalPixels / 4);
+      const scratchedRatio = transparentPixels / sampledPixels;
+
+      if (scratchedRatio > 0.42) {
+        revealCard();
+      }
+    }
+
+    function revealCard() {
+      if (revealed) return;
+
+      revealed = true;
+      canvas.classList.add("revealed");
+    }
+
+    canvas.addEventListener("pointerdown", function (event) {
+      if (revealed) return;
+
+      isScratching = true;
+      lastPoint = getPoint(event);
+
+      if (canvas.setPointerCapture) {
+        canvas.setPointerCapture(event.pointerId);
+      }
+
+      event.preventDefault();
+    });
+
+    canvas.addEventListener("pointermove", function (event) {
+      if (!isScratching || revealed) return;
+
+      scratchTo(getPoint(event));
+      event.preventDefault();
+    });
+
+    function stopScratching() {
+      isScratching = false;
+      lastPoint = null;
+    }
+
+    canvas.addEventListener("pointerup", stopScratching);
+    canvas.addEventListener("pointercancel", stopScratching);
+    canvas.addEventListener("lostpointercapture", stopScratching);
+
+    revealButton.addEventListener("click", revealCard);
+
+    setupCanvas();
+
+    window.addEventListener("resize", function () {
+      if (!revealed) setupCanvas();
+    });
+  }
+
+  // --------------------------------------------------
+  // BACKGROUND MUSIC
+  // Music file is optional.
+  // Add assets/wedding-music.mp3 to enable it.
+  // --------------------------------------------------
+
+  musicButton.addEventListener("click", async function () {
+    if (!music) return;
+
+    if (!musicPlaying) {
+      try {
+        await music.play();
+        musicPlaying = true;
+        musicLabel.textContent = "Pause music";
+        musicButton.setAttribute("aria-label", "Pause background music");
+      } catch (error) {
+        musicLabel.textContent = "Music unavailable";
+        console.warn("Music could not be played. Check the MP3 file path.", error);
+      }
+    } else {
+      music.pause();
+      musicPlaying = false;
+      musicLabel.textContent = "Play music";
+      musicButton.setAttribute("aria-label", "Play background music");
+    }
+  });
+
+});
